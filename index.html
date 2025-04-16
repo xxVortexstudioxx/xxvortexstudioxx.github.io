@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Studio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .container {
+      border: 20px solid black;
+      margin: 10px;
+      height: calc(100% - 20px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      width: 80px;
+      z-index: 1000;
+    }
+
+    .menu-button {
+      position: fixed;
+      top: 20px;
+      left: 30px;
+      background-color: #111;
+      color: white;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu {
+      position: fixed;
+      top: 60px;
+      left: 30px;
+      background-color: #111;
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+    }
+
+    .menu a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      border-top: 1px solid #333;
+    }
+
+    .menu a:hover {
+      background-color: #333;
+    }
+
+    .section {
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 100px 40px 40px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    .ropa-category {
+      margin-bottom: 30px;
+    }
+
+    .ropa-category h2 {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .ropa-item {
+      margin-left: 15px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button class="menu-button" onclick="toggleMenu()">Menú</button>
+    <div class="menu" id="menu">
+      <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+      <a href="#" onclick="mostrarSeccion('ropa')">Ropa</a>
+    </div>
+
+    <img src="Vortexlogo.png" alt="Logo de Vortex" class="logo">
+
+    <div id="inicio" class="section active">
+      <h1>Bienvenido a Vortex</h1>
+      <img src="Vortex.jpg" alt="Banner Vortex" class="banner">
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/xxvortexstudixx" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@xvortexstudiox" target="_blank">TikTok</a>
+      </div>
+    </div>
+
+    <div id="ropa" class="section">
+      <h1>Ropa</h1>
+
+      <div class="ropa-category">
+        <h2>Pantalones</h2>
+        <p class="ropa-item">Pantalón casual Vortex</p>
+        <p class="ropa-item">Pantalón de mezclilla Vortex</p>
+        <p class="ropa-item">Joggers Vortex</p>
+      </div>
+
+      <div class="ropa-category">
+        <h2>Camisetas</h2>
+        <p class="ropa-item">Camiseta gráfica Vortex</p>
+        <p class="ropa-item">Camiseta deportiva Vortex</p>
+        <p class="ropa-item">Camiseta básica Vortex</p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/xxvortexstudixx" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@xvortexstudiox" target="_blank">TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      document.getElementById("menu").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
