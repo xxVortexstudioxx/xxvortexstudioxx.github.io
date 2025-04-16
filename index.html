@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vortex Studio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* No scroll */
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    .logo {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 80px;
+      z-index: 1000;
+    }
+
+    .menu-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      z-index: 999;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .menu-button {
+      background-color: #222;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .menu-links {
+      display: none;
+      flex-direction: column;
+      background-color: #111;
+      margin-top: 10px;
+      position: absolute;
+      left: 10px;
+      top: 50px;
+      z-index: 999;
+    }
+
+    .menu-links a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      border-top: 1px solid #333;
+      width: 120px;
+    }
+
+    .menu-links a:hover {
+      background-color: #333;
+    }
+
+    section {
+      height: 100vh;
+      width: 100vw;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      display: none;
+      padding: 60px 20px 20px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    .social-links {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    .ropa-category {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      text-align: left;
+    }
+
+    .ropa-category h2 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .ropa-item {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú desplegable -->
+  <div class="menu-container">
+    <button class="menu-button" onclick="toggleMenu()">Menú</button>
+    <div class="menu-links" id="menuLinks">
+      <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+      <a href="#" onclick="mostrarSeccion('ropa')">Ropa</a>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <img src="Vortexlogo.png" alt="Logo de Vortex" class="logo" />
+
+  <!-- Sección INICIO -->
+  <section id="inicio" class="active">
+    <h1>Bienvenido a Vortex</h1>
+    <img src="Vortex.jpg" alt="Banner Vortex" class="banner" />
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/xxvortexstudixx" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@xvortexstudiox" target="_blank">TikTok</a>
+    </div>
+  </section>
+
+  <!-- Sección ROPA -->
+  <section id="ropa">
+    <h1>Ropa</h1>
+
+    <div class="ropa-category">
+      <h2>Pantalones</h2>
+      <p class="ropa-item">Pantalón casual Vortex</p>
+      <p class="ropa-item">Pantalón de mezclilla Vortex</p>
+      <p class="ropa-item">Joggers Vortex</p>
+    </div>
+
+    <div class="ropa-category">
+      <h2>Camisetas</h2>
+      <p class="ropa-item">Camiseta gráfica Vortex</p>
+      <p class="ropa-item">Camiseta deportiva Vortex</p>
+      <p class="ropa-item">Camiseta básica Vortex</p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.instagram.com/xxvortexstudixx" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@xvortexstudiox" target="_blank">TikTok</a>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("menuLinks");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+      document.getElementById("menuLinks").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
